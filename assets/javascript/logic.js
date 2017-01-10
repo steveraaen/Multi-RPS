@@ -1,22 +1,54 @@
-$(document).ready(function(){
-var database = firebase.database();
-console.log(database)
-var counter = 0;
-$('#click-button').on('click', function(){
-	counter++;
+   $(document).ready(function() {
+       var config = {
+           apiKey: "AIzaSyCpxHYzmMVHenG4b345MQ_rzs9myOeWQzI",
+           authDomain: "multi-rps-30f12.firebaseapp.com",
+           databaseURL: "https://multi-rps-30f12.firebaseio.com",
+           storageBucket: "multi-rps-30f12.appspot.com",
+           messagingSenderId: "903429570889"
+       };
+       firebase.initializeApp(config);
 
-	database.ref().set({
-        clickCount: counter
-      });
-	console.log(counter);
-})
-    database.ref().on("value", function(snapshot) {
-      console.log()
+       var database = firebase.database();
+       var name = 'steve';
+       var curPick = 'Has not picked yet';
+       var score = 0;
+       $('#add-user').on('click', function() {
+           database.ref().set({
+               name: name,
+               curPick: curPick,
+               score: score
+           });
+           return false;
+       });
+       database.ref().on('value', function(snapshot){
+      console.log(snapshot.val());
+      console.log(snapshot.val().name);
+      console.log(snapshot.val().curPick);
+      console.log(snapshot.val().score);
 
-      $("#click-value").html(snapshot.val().clickCount);
+      $('#p1name').html(snapshot.val().name)
+      $('#p1curPick').html(snapshot.val().curPick)
+      $('#p1score').html(snapshot.val().score)
+       })
+   })
 
-      clickCounter = snapshot.val().clickCount;
-    }, function(errorObject) {
-      console.log("The read failed: " + errorObject.code);
-    });
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
