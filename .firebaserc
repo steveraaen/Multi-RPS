@@ -1,6 +1,7 @@
 {
   "projects": {
-    "rps": "multi-rps-30f12",
+    "multirps": "multi-rps-30f12",
+    "multi": "multi-rps-30f12",
     "default": "multi-rps-30f12"
   }
 }
