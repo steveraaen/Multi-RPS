@@ -2,6 +2,9 @@
   "projects": {
     "multirps": "multi-rps-30f12",
     "multi": "multi-rps-30f12",
-    "default": "multi-rps-30f12"
+    "default": "multi-rps-30f12",
+    "uidemo": "multi-rps-30f12",
+    "multirpsauth": "multi-rps-30f12",
+    "rpswithauth": "multi-rps-30f12"
   }
 }

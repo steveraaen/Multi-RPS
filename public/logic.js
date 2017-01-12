@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    var firebase = require('firebase');
-    var firebaseui = require('firebaseui');
+
     var name1 = 'steve';
     var name2 = 'No Opponent Yet';
     var id1 = 'tuAcPvNDV0YeEmxJFsrPjQxJXow1';
@@ -36,7 +35,7 @@ $(document).ready(function() {
             score1: score1,
             score2: score2,
         });
-    $('#add-user').on('click', function() {s
+    $('#add-user').on('click', function() {
             var id2 = result;
             name2 = $('#newName').val().trim();
             console.log(id2)
