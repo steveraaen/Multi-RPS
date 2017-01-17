@@ -1,26 +1,32 @@
 $(document).ready(function() {
+
     // =============================================================
-    // Set initial values (with explici user references for testing)
-    var name1 = 'Steve';
-    var name2 = 'No Opponent Yet';
-    var id1 = 'tuAcPvNDV0YeEmxJFsrPjQxJXow1';
-    var id2 = 'iSGNBlQyWJNXyo7iike1gcPkB5h1';
-    var curPick1 = 'Has Not Picked yet';
-    var curPick2 = 'Has not picked yet';
-    var score1 = 0;
-    var score2 = 0;
-    // =============================================================
+    // Set initial player objects (with explicit user references for testing)
+    var players = [
+    { name  : 'Steve', 
+      id    : 'tuAcPvNDV0YeEmxJFsrPjQxJXow1',
+      score : 0,
+      curPick : 'Has Not Picked yet' 
+    },
+    { name  : 'Waiting For Player',
+      id    : 'iSGNBlQyWJNXyo7iike1gcPkB5h1',
+      score : 0,
+      curPick : 'Has Not Picked yet' 
+    }];
+    var player1, player2;
+    console.log(player1)
+   // =============================================================
     // Assign values to the game info divs
-    $('#p1name').html(name1)
-    $('#p2name').html(name2)
-    $('#p1curPick').html(curPick1)
-    $('#p2curPick').html(curPick2)
-    $('#p1score').html(score1)
-    $('#p2score').html(score2)
-    $('#p1id').html(id1)
-    $('#p2id').html(id2)
+    $('#p1name').html(players[0].name)
+    $('#p2name').html(players[1].name)
+    $('#p1curPick').html(players[0].curPick)
+    $('#p2curPick').html(players[1].curPick)
+    $('#p1score').html(players[0].score)
+    $('#p2score').html(players[1].score)
+    $('#p1id').html(players[0].id)
+    $('#p2id').html(players[1].id)
         // =============================================================
-        // Set Firebase configuration settings
+       // Set Firebase configuration settings
     var config = {
         apiKey: "AIzaSyCpxHYzmMVHenG4b345MQ_rzs9myOeWQzI",
         authDomain: "multi-rps-30f12.firebaseapp.com",
@@ -35,18 +41,18 @@ $(document).ready(function() {
     // =============================================================
     // When user clicks add-user button, name2 is assigned value of input id = newName
     $('#add-user').on('click', function() {
-        name2 = $('#newName').val().trim();
+        players2.name = $('#newName').val().trim();
         // =============================================================
         // Refer to Firebase database and overwrite them with key value pairs
         database.ref().set({
-            name1: name1,
-            name2: name2,
-            id1: id1,
-            id2: id2,
-            curPick1: curPick1,
-            curPick2: curPick2,
-            score1: score1,
-            score2: score2,
+            name1: players[0].name,
+            name2: players[1].name,
+            id1: players[0].id,
+            id2: players[1].id,
+            curPick1: players[0].curPick,
+            curPick2: players[1].curPick,
+            score1: players[0].score,
+            score2: players[1].score,
         });
         // ==============================================================
         // Prevent the browser from ssubmitting the form
@@ -63,10 +69,14 @@ $(document).ready(function() {
         $('#p2score').html(snapshot.val().score2)
         $('#p1id').html(snapshot.val().id1)
         $('#p2id').html(snapshot.val().id2)
-    })
     function chooseRPS(){
+console.log(snapshot)
 
     }
+    chooseRPS()
+    })
+
+
 
 })
 

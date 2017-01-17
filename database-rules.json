@@ -1,5 +1,7 @@
 {
     "rules": {
+        ".read": true,
+        ".write": true,
         "name1": "steve",
         "name2": "Zolpy",
         "id1": "id1",
